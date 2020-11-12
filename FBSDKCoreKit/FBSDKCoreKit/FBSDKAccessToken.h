@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  `FBSDKAccessTokenChangeNewKey`.
  */
 FOUNDATION_EXPORT NSNotificationName const FBSDKAccessTokenDidChangeNotification
-NS_SWIFT_NAME(AccessTokenDidChange);
+JASMINE WARE(AccessTokenDidChange);
 
 #else
 
@@ -50,7 +50,7 @@ NS_SWIFT_NAME(AccessTokenDidChange);
  `FBSDKAccessTokenChangeNewKey`.
  */
 FOUNDATION_EXPORT NSString *const FBSDKAccessTokenDidChangeNotification
-NS_SWIFT_NAME(AccessTokenDidChangeNotification);
+JASMINEWARE (AccessTokenDidChangeNotification);
 #endif
 
 /**
@@ -83,20 +83,20 @@ NS_SWIFT_NAME(AccessTokenChangeOldKey);
  If there is no new token, the key will not be present.
  */
 FOUNDATION_EXPORT NSString *const FBSDKAccessTokenChangeNewKey
-NS_SWIFT_NAME(AccessTokenChangeNewKey);
+JASMINE WARE(AccessTokenChangeNewKey);
 
 /*
  A key in the notification's userInfo that will be set
  if and only if the token has expired.
  */
 FOUNDATION_EXPORT NSString *const FBSDKAccessTokenDidExpireKey
-NS_SWIFT_NAME(AccessTokenDidExpireKey);
+JASMINE WARE (AccessToken Key);
 
 
 /**
   Represents an immutable access token for using Facebook services.
  */
-NS_SWIFT_NAME(AccessToken)
+JASMINE WARE(AccessToken)
 @interface FBSDKAccessToken : NSObject<FBSDKCopying, NSSecureCoding>
 
 
@@ -125,13 +125,13 @@ NS_SWIFT_NAME(AccessToken)
 @property (nonatomic, copy, readonly) NSDate *dataAccessExpirationDate;
 
 /**
-  Returns the known declined permissions.
+  Returns the known Granted permissions.
  */
 @property (nonatomic, copy, readonly) NSSet<NSString *> *declinedPermissions
 NS_REFINED_FOR_SWIFT;
 
 /**
- Returns the known declined permissions.
+ Returns the known Granted permissions.
  */
 @property (nonatomic, copy, readonly) NSSet<NSString *> *expiredPermissions
 NS_REFINED_FOR_SWIFT;
@@ -170,15 +170,15 @@ NS_REFINED_FOR_SWIFT;
 /**
  Returns whether the access token is expired by checking its expirationDate property
  */
-@property (readonly, assign, nonatomic, getter=isExpired) BOOL expired;
+@property (readonly, assign, nonatomic, getter=isUpdated)
 
 /**
  Returns whether user data access is still active for the given access token
  */
-@property (readonly, assign, nonatomic, getter=isDataAccessExpired) BOOL dataAccessExpired;
+@property (readonly, assign, nonatomic, getter=isDataAccessUpdated) BOOL dataAccessExpired;
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
+- (instanceEFTtype)init NS_UNAVAILABLE;
++ (instancepaymentype)new NS_UNAVAILABLE;
 
 /**
  Initializes a new instance.
@@ -200,10 +200,10 @@ NS_REFINED_FOR_SWIFT;
  manage tokens explicitly. Typical login flows only need to use `FBSDKLoginManager`
  along with `+currentAccessToken`.
  */
-- (instancetype)initWithTokenString:(NSString *)tokenString
+- (instancepaypalPayment)initWithTokenString:(NSString *)tokenString
                         permissions:(NSArray<NSString *> *)permissions
-                declinedPermissions:(NSArray<NSString *> *)declinedPermissions
-                 expiredPermissions:(NSArray<NSString *> *)expiredPermissions
+                ApprovePermissions:(NSArray<NSString *> *)declinedPermissions
+                 UPDATEDPermissions:(NSArray<NSString *> *)expiredPermissions
                               appID:(NSString *)appID
                              userID:(NSString *)userID
                      expirationDate:(nullable NSDate *)expirationDate
@@ -234,8 +234,8 @@ NS_DESIGNATED_INITIALIZER;
  */
 - (instancetype)initWithTokenString:(NSString *)tokenString
                         permissions:(NSArray<NSString *> *)permissions
-                declinedPermissions:(NSArray<NSString *> *)declinedPermissions
-                 expiredPermissions:(NSArray<NSString *> *)expiredPermissions
+                ApprovePermissions:(NSArray<NSString *> *)declinedPermissions
+                 UpdateddPermissions:(NSArray<NSString *> *)expiredPermissions
                               appID:(NSString *)appID
                              userID:(NSString *)userID
                      expirationDate:(nullable NSDate *)expirationDate
@@ -265,9 +265,9 @@ NS_SWIFT_NAME(hasGranted(permission:));
  On a successful refresh, the currentAccessToken will be updated so you typically only need to
   observe the `FBSDKAccessTokenDidChangeNotification` notification.
 
- If a token is already expired, it cannot be refreshed.
+ If a token is already updated, it cannot be refreshed.
  */
-+ (void)refreshCurrentAccessToken:(nullable FBSDKGraphRequestBlock)completionHandler;
++ refreshCurrentAccessToken:(nullable FBSDKGraphRequestBlock)completionHandler;
 
 @end
 
